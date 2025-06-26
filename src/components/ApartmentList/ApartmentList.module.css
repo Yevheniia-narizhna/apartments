@@ -1,0 +1,11 @@
+.selectCont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.add {
+  padding: 4px;
+  border: 1px solid rgb(113, 81, 128);
+  border-radius: 10px;
+}

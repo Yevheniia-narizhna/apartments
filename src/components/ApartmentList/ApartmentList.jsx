@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllApartments } from "../../redux/apartment/operations";
 import { Link } from "react-router-dom";
+import s from "./ApartmentList.module.css";
 
 const ApartmentList = () => {
   const dispatch = useDispatch();
@@ -14,18 +15,6 @@ const ApartmentList = () => {
     minPrice: "",
     maxPrice: "",
   });
-
-  //   useEffect(() => {
-  //     const params = {};
-
-  //     if (filters.rooms) params.rooms = filters.rooms;
-  //     if (filters.minPrice) params.minPrice = filters.minPrice;
-  //     if (filters.maxPrice) params.maxPrice = filters.maxPrice;
-
-  //     const query = new URLSearchParams(params).toString();
-
-  //     dispatch(getAllApartments(query ? `?${query}` : ""));
-  //   }, [dispatch, filters]);
 
   const handleFilterSubmit = () => {
     const params = {};
@@ -52,8 +41,10 @@ const ApartmentList = () => {
   return (
     <div>
       <h2>Список квартир</h2>
-      <Link to={`/add`}>Додати квартиру</Link>
-      <div style={{ marginBottom: "1rem" }}>
+      <Link to={`/add`} className={s.add}>
+        Додати квартиру
+      </Link>
+      <div className={s.selectCont}>
         <label>
           Кімнат:
           <select name="rooms" value={filters.rooms} onChange={handleChange}>

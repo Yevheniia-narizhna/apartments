@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { getApartmentById } from "../../redux/apartment/operations";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  deleteApartment,
+  getApartmentById,
+} from "../../redux/apartment/operations";
 
 const Details = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { currentApartment, loading, error } = useSelector(
     (state) => state.apartment
   );
@@ -20,8 +24,15 @@ const Details = () => {
 
   const { title, description, price, rooms, images } = currentApartment;
 
+  const handleDelete = () => {
+    if (window.confirm("Delete this hore?")) {
+      dispatch(deleteApartment(id)).then(() => navigate("/"));
+    }
+  };
+
   return (
     <div>
+      <Link to={`/`}>Назад</Link>
       <h2>{title}</h2>
       <p>{description}</p>
       <p>Ціна: {price} грн</p>
@@ -36,6 +47,12 @@ const Details = () => {
       )}
 
       <Link to={`/apartment/${id}/edit`}>Редагувати</Link>
+      <button
+        onClick={handleDelete}
+        style={{ marginLeft: "1rem", color: "red" }}
+      >
+        Видалити квартиру
+      </button>
     </div>
   );
 };

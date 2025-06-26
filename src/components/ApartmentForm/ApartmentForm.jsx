@@ -6,6 +6,7 @@ import {
   getApartmentById,
   updateApartment,
 } from "../../redux/apartment/operations.js";
+import s from "./ApartmentForm.module.css";
 
 const ApartmentForm = ({ mode = "create" }) => {
   const { id } = useParams();
@@ -90,7 +91,7 @@ const ApartmentForm = ({ mode = "create" }) => {
     return <p>Loading...</p>;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={s.form} onSubmit={handleSubmit}>
       <input
         name="title"
         value={form.title}
@@ -117,11 +118,12 @@ const ApartmentForm = ({ mode = "create" }) => {
         <option value={1}>1 кімната</option>
         <option value={2}>2 кімнати</option>
         <option value={3}>3 кімнати</option>
+        <option value={4}>4 кімнати</option>
+        <option value={5}>5 кімнат</option>
       </select>
 
       {mode === "edit" && (
         <>
-          <p>Існуючі фото:</p>
           <div style={{ display: "flex", gap: 10 }}>
             {form.existingImages.map((img, idx) => (
               <div key={idx}>

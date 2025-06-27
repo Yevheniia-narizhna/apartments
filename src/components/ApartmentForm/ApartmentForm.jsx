@@ -118,8 +118,6 @@ const ApartmentForm = ({ mode = "create" }) => {
         <option value={1}>1 кімната</option>
         <option value={2}>2 кімнати</option>
         <option value={3}>3 кімнати</option>
-        <option value={4}>4 кімнати</option>
-        <option value={5}>5 кімнат</option>
       </select>
 
       {mode === "edit" && (

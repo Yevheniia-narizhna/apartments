@@ -5,6 +5,7 @@ import {
   deleteApartment,
   getApartmentById,
 } from "../../redux/apartment/operations";
+import s from "./Details.module.css";
 
 const Details = () => {
   const { id } = useParams();
@@ -31,8 +32,8 @@ const Details = () => {
   };
 
   return (
-    <div>
-      <Link to={`/`}>Назад</Link>
+    <div className={s.details}>
+      <Link to={`/`}>Назад до списку</Link>
       <h2>{title}</h2>
       <p>{description}</p>
       <p>Ціна: {price} грн</p>

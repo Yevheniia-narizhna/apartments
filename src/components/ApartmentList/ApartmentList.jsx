@@ -36,14 +36,13 @@ const ApartmentList = () => {
 
   if (loading) return <p>Завантаження...</p>;
   if (error) return <p>Помилка: {error}</p>;
-  if (apartments.length === 0) return <p>Немає квартир</p>;
 
   return (
-    <div>
-      <h2>Список квартир</h2>
+    <div className={s.contList}>
       <Link to={`/add`} className={s.add}>
         Додати квартиру
       </Link>
+      <h2>Список квартир</h2>
       <div className={s.selectCont}>
         <label>
           Кімнат:
@@ -70,23 +69,27 @@ const ApartmentList = () => {
             onChange={handleChange}
           />
         </label>
-        <button onClick={handleFilterSubmit}>Застосувати фільтри</button>
+        <button onClick={handleFilterSubmit}>Знайти</button>
       </div>
-      <ul>
-        {apartments.map((apt) => (
-          <li key={apt._id}>
-            <h3>{apt.title}</h3>
-            <p>{apt.description}</p>
-            <p>Ціна: {apt.price} грн</p>
-            <p>Кімнат: {apt.rooms}</p>
-            {apt.images?.[0] && (
-              <img src={apt.images[0]} alt="квартира" width={200} />
-            )}
-            <br />
-            <Link to={`/apartment/${apt._id}`}>Детальніше</Link>
-          </li>
-        ))}
-      </ul>
+      {apartments.length === 0 ? (
+        <p>Немає квартир</p>
+      ) : (
+        <ul className={s.list}>
+          {apartments.map((apt) => (
+            <li className={s.card} key={apt._id}>
+              <h3>{apt.title}</h3>
+              <p>{apt.description}</p>
+              <p>Ціна: {apt.price} грн</p>
+              <p>Кімнат: {apt.rooms}</p>
+              {apt.images?.[0] && (
+                <img src={apt.images[0]} alt="квартира" width={200} />
+              )}
+              <br />
+              <Link to={`/apartment/${apt._id}`}>Детальніше</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

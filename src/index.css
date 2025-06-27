@@ -46,6 +46,7 @@ h1 {
 ul,
 li {
   list-style: none;
+  padding: 0;
 }
 button {
   border-radius: 16px;
@@ -67,7 +68,7 @@ input {
   border-radius: 10px;
   border: none;
   outline: none;
-  max-width: 80px;
+  max-width: 160px;
 }
 textarea {
   height: 80px;
@@ -78,6 +79,7 @@ textarea {
   font-family: inherit;
 }
 select {
+  cursor: pointer;
   padding: 4px 10px;
   border: 1px solid #ccc;
   border-radius: 10px;

@@ -35,7 +35,7 @@ const Details = () => {
     <div className={s.details}>
       <Link to={`/`}>Назад до списку</Link>
       <h2>{title}</h2>
-      <p>{description}</p>
+      <p className={s.descriptionCard}>{description}</p>
       <p>Ціна: {price} грн</p>
       <p>Кімнат: {rooms}</p>
 

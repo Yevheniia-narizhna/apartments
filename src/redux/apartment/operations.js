@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const rentApi = axios.create({
   baseURL: "https://apartments-back.onrender.com/api",
+  // baseURL: "http://localhost:32307/api",
   withCredentials: true,
 });
 

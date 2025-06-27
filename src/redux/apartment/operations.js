@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const rentApi = axios.create({
-  baseURL: "http://localhost:32307/api",
+  baseURL: "https://apartments-back.onrender.com",
   withCredentials: true,
 });
 

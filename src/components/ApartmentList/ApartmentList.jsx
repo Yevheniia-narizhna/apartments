@@ -78,7 +78,7 @@ const ApartmentList = () => {
           {apartments.map((apt) => (
             <li className={s.card} key={apt._id}>
               <h3>{apt.title}</h3>
-              <p>{apt.description}</p>
+              <p className={s.description}>{apt.description}</p>
               <p>Ціна: {apt.price} грн</p>
               <p>Кімнат: {apt.rooms}</p>
               {apt.images?.[0] && (
